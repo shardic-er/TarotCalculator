@@ -130,6 +130,13 @@ const ParticipantsTabs: React.FC<ParticipantsTabsProps> = ({ questions, categori
         console.log("Sorted Assignments:", sortedAssignments);
     };
 
+    const handleNameChange = (participantId: number, newName: string) => {
+        setNames(prevNames => ({
+            ...prevNames,
+            [participantId]: newName
+        }));
+    };
+
     const checkQuizCompletion = (participantId: number): boolean => {
         return questions.every(question => selectedOptions[participantId]?.[question.id] !== undefined);
     };
@@ -219,11 +226,34 @@ const ParticipantsTabs: React.FC<ParticipantsTabsProps> = ({ questions, categori
         );
     };
 
+    const renderNameCard = (idx: number) => {
+        return (
+            <div className="card mb-3" style={{ maxWidth: "300px" }}>
+                <div className="card-body">
+                    <label htmlFor={`participant-name-${idx}`} className="form-label">Name: </label>
+                    <input
+                        type="text"
+                        id={`participant-name-${idx}`}
+                        className="form-control mb-2"
+                        value={names[idx] || ''}
+                        onChange={(e) => handleNameChange(idx, e.target.value)}
+                    />
+                    <button
+                        className="btn btn-secondary"
+                        onClick={() => handleClear(idx)}
+                    >
+                        Clear
+                    </button>
+                </div>
+            </div>
+        );
+    };
+
     const renderTabContent = () => {
         return (
             <div className="tab-content">
                 <div className={`tab-pane fade ${activeTab === 0 ? 'show active' : ''}`} id="results-summary" role="tabpanel">
-                    <ParticipantsResultsTable results={results} participants={participants} categories={categories} names={names} assignments={assignments}  calculateError={calculateError}/>
+                    <ParticipantsResultsTable results={results} participants={participants} categories={categories} names={names} assignments={assignments} calculateError={calculateError} />
                 </div>
                 {[...Array(participants)].map((_, idx) => (
                     <div
@@ -232,16 +262,23 @@ const ParticipantsTabs: React.FC<ParticipantsTabsProps> = ({ questions, categori
                         role="tabpanel"
                         key={idx}
                     >
-                        <Questionnaire
-                            questions={questions}
-                            categories={categories}
-                            selectedOptions={selectedOptions[idx] || {}}
-                            onOptionSelect={(questionId: number, optionId: number) => handleSelectOption(idx, questionId, optionId)}
-                            onSubmit={() => handleSubmit(idx)}
-                            onClear={() => handleClear(idx)}
-                            onRandomize={() => handleRandomize(idx)}
-                            results={results[idx] || []}
-                        />
+                        <div className="d-flex flex-wrap">
+                            {renderNameCard(idx)}
+                            <div className="card mb-3 flex-grow-1">
+                                <div className="card-body">
+                                    <Questionnaire
+                                        questions={questions}
+                                        categories={categories}
+                                        selectedOptions={selectedOptions[idx] || {}}
+                                        onOptionSelect={(questionId: number, optionId: number) => handleSelectOption(idx, questionId, optionId)}
+                                        onSubmit={() => handleSubmit(idx)}
+                                        onClear={() => handleClear(idx)}
+                                        onRandomize={() => handleRandomize(idx)}
+                                        results={results[idx] || []}
+                                    />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 ))}
             </div>
@@ -250,7 +287,7 @@ const ParticipantsTabs: React.FC<ParticipantsTabsProps> = ({ questions, categori
 
     const renderControlButtons = () => {
         return (
-            <div className="btn-group mt-3">
+            <div className="btn-group mt-3 m-2">
                 <button className="btn btn-primary" onClick={handleScoreAll}>
                     Score All
                 </button>
