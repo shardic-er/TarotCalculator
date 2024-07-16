@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/TarotCalculator/static/css/main.ff02f4b5.css",
-    "main.js": "/TarotCalculator/static/js/main.23e3a78a.js",
+    "main.js": "/TarotCalculator/static/js/main.b528d628.js",
     "static/js/453.cf7a9db1.chunk.js": "/TarotCalculator/static/js/453.cf7a9db1.chunk.js",
     "index.html": "/TarotCalculator/index.html",
     "main.ff02f4b5.css.map": "/TarotCalculator/static/css/main.ff02f4b5.css.map",
-    "main.23e3a78a.js.map": "/TarotCalculator/static/js/main.23e3a78a.js.map",
+    "main.b528d628.js.map": "/TarotCalculator/static/js/main.b528d628.js.map",
     "453.cf7a9db1.chunk.js.map": "/TarotCalculator/static/js/453.cf7a9db1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ff02f4b5.css",
-    "static/js/main.23e3a78a.js"
+    "static/js/main.b528d628.js"
   ]
 }
