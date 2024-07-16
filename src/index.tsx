@@ -1,15 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import ParticipantsTabs from "./components/participants_tabs/participants_tabs";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {questions} from "./data/question_data";
+import {arcana_categories} from "./data/catagory_data";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <App />
+      <div className="App">
+          <ParticipantsTabs questions={questions} categories={arcana_categories} participants={22} />
+      </div>
   </React.StrictMode>
 );
 
