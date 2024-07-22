@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Questionnaire from '../questionare/questionare'; // Use the incorrect spelling as specified
 import { Category, Question, Result } from '../../common/interfaces';
 import ParticipantsResultsTable from '../participants_results_table/participants_results_table';
+import {Affinity} from "../../common/enum";
 
 interface ParticipantsTabsProps {
     questions: Question[];
@@ -39,6 +40,14 @@ const ParticipantsTabs: React.FC<ParticipantsTabsProps> = ({ questions, categori
     const [assignments, setAssignments] = useState<Record<number, string>>({});
     const [activeTab, setActiveTab] = useState(0);
     const [names, setNames] = useState<Record<number, string>>({});
+    const [displayAffinities, setDisplayAffinities] = useState<Record<Affinity, boolean>>({
+        [Affinity.ANTI]: true,
+        [Affinity.NONE]: false,
+        [Affinity.SLIGHT]: false,
+        [Affinity.MODERATE]: false,
+        [Affinity.STRONG]: true
+    });
+
 
     // Initialize names with random values (mock for now)
     useEffect(() => {
@@ -134,6 +143,13 @@ const ParticipantsTabs: React.FC<ParticipantsTabsProps> = ({ questions, categori
         setNames(prevNames => ({
             ...prevNames,
             [participantId]: newName
+        }));
+    };
+
+    const handleAffinityChange = (affinity: Affinity) => {
+        setDisplayAffinities(prev => ({
+            ...prev,
+            [affinity]: !prev[affinity]
         }));
     };
 
@@ -239,11 +255,12 @@ const ParticipantsTabs: React.FC<ParticipantsTabsProps> = ({ questions, categori
                         onChange={(e) => handleNameChange(idx, e.target.value)}
                     />
                     <button
-                        className="btn btn-secondary"
+                        className="btn btn-secondary mb-3"
                         onClick={() => handleClear(idx)}
                     >
                         Clear
                     </button>
+                    {renderAffinityCheckboxes()}
                 </div>
             </div>
         );
@@ -275,6 +292,7 @@ const ParticipantsTabs: React.FC<ParticipantsTabsProps> = ({ questions, categori
                                         onClear={() => handleClear(idx)}
                                         onRandomize={() => handleRandomize(idx)}
                                         results={results[idx] || []}
+                                        displayAffinities={displayAffinities} // Pass displayAffinities as prop
                                     />
                                 </div>
                             </div>
@@ -284,6 +302,8 @@ const ParticipantsTabs: React.FC<ParticipantsTabsProps> = ({ questions, categori
             </div>
         );
     };
+
+
 
     const renderControlButtons = () => {
         return (
@@ -297,6 +317,30 @@ const ParticipantsTabs: React.FC<ParticipantsTabsProps> = ({ questions, categori
                 <button className="btn btn-success" onClick={handleSortParticipants}>
                     Sort
                 </button>
+            </div>
+        );
+    };
+
+    const renderAffinityCheckboxes = () => {
+        return (
+            <div className="card mb-3" style={{ maxWidth: "300px" }}>
+                <div className="card-body">
+                    <h5 className="card-title">Configure Affinities</h5>
+                    {Object.values(Affinity).filter(value => typeof value === 'number').map((affinity, index) => (
+                        <div className="form-check" key={index}>
+                            <input
+                                type="checkbox"
+                                className="form-check-input"
+                                id={`affinity-${affinity}`}
+                                checked={displayAffinities[affinity as Affinity]}
+                                onChange={() => handleAffinityChange(affinity as Affinity)}
+                            />
+                            <label className="form-check-label" htmlFor={`affinity-${affinity}`}>
+                                {Affinity[affinity as Affinity]}
+                            </label>
+                        </div>
+                    ))}
+                </div>
             </div>
         );
     };

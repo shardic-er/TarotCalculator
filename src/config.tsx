@@ -1,6 +1,6 @@
 import {Affinity} from "./common/enum";
 
-export const displayAffinities: Record<Affinity, boolean> = {
+export const defaultDisplayAffinities: Record<Affinity, boolean> = {
     [Affinity.ANTI]: true,
     [Affinity.NONE]: false,
     [Affinity.SLIGHT]: false,

@@ -1,9 +1,8 @@
 import React from 'react';
-import {Category, Question, Result} from '../../common/interfaces';
+import { Category, Question, Result } from '../../common/interfaces';
 import ResultsTable from '../results_table/results_table';
-import {Affinity} from '../../common/enum';
-import DisplayImpression from '../display_impression/display_impression'
-import {displayAffinities} from "../../config";
+import { Affinity } from '../../common/enum';
+import DisplayImpression from '../display_impression/display_impression';
 
 interface QuestionnaireProps {
     questions: Question[];
@@ -14,18 +13,19 @@ interface QuestionnaireProps {
     onClear: () => void;
     onRandomize: () => void;
     results: Result[];
+    displayAffinities: Record<Affinity, boolean>; // Add displayAffinities to props
 }
 
-const Questionnaire: React.FC<QuestionnaireProps> = (
-    {
-        questions,
-        selectedOptions,
-        onOptionSelect,
-        onSubmit,
-        onClear,
-        onRandomize,
-        results
-    }) => {
+const Questionnaire: React.FC<QuestionnaireProps> = ({
+                                                         questions,
+                                                         selectedOptions,
+                                                         onOptionSelect,
+                                                         onSubmit,
+                                                         onClear,
+                                                         onRandomize,
+                                                         results,
+                                                         displayAffinities // Destructure displayAffinities from props
+                                                     }) => {
     const renderQuestionSelector = (question: Question) => {
         return (
             <div key={question.id} className="card mb-3">
@@ -69,7 +69,6 @@ const Questionnaire: React.FC<QuestionnaireProps> = (
         );
     };
 
-
     const renderQuestionCards = () => questions.map(renderQuestionSelector);
 
     const renderControlButtons = () => {
@@ -91,12 +90,12 @@ const Questionnaire: React.FC<QuestionnaireProps> = (
     return (
         <div className="container">
             <div className="row justify-content-around">
-                <div className="col-md-9" style={{marginBottom: '2rem'}}>
+                <div className="col-md-9" style={{ marginBottom: '2rem' }}>
                     {renderQuestionCards()}
                     {renderControlButtons()}
                 </div>
                 <div>
-                    <ResultsTable results={results}/>
+                    <ResultsTable results={results} />
                 </div>
             </div>
         </div>

@@ -11,8 +11,6 @@ interface DisplayImpressionProps {
 }
 
 const DisplayImpression: React.FC<DisplayImpressionProps> = ({ impact }) => {
-    if (impact.points === Affinity.NONE) return null;
-
     const icon = arcanaIcons[impact.categoryId];
     const affinityColor = affinityColors[impact.points];
     const arcanaName = ArcanaCategory[impact.categoryId]; // Get the full name of the Arcana
