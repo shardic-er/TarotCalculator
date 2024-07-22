@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/TarotCalculator/static/css/main.ff02f4b5.css",
-    "main.js": "/TarotCalculator/static/js/main.daa30710.js",
+    "main.css": "/TarotCalculator/static/css/main.be8419b4.css",
+    "main.js": "/TarotCalculator/static/js/main.20559906.js",
     "static/js/453.cf7a9db1.chunk.js": "/TarotCalculator/static/js/453.cf7a9db1.chunk.js",
     "static/media/JUDGEMENT.svg": "/TarotCalculator/static/media/JUDGEMENT.a5b01fba69c07c91ed075610b22f74e3.svg",
     "static/media/THE_LOVERS.svg": "/TarotCalculator/static/media/THE_LOVERS.a47c29d9ac69f3ff4874a3e7329a560c.svg",
@@ -26,12 +26,12 @@
     "static/media/THE_MOON.svg": "/TarotCalculator/static/media/THE_MOON.187ae650e3051de8adddfd4b554a13d4.svg",
     "static/media/DEATH.svg": "/TarotCalculator/static/media/DEATH.2d90679e174efc8757e803378b2deada.svg",
     "static/media/THE_HIEROPHANT.svg": "/TarotCalculator/static/media/THE_HIEROPHANT.feb9ac3b11fe56c118b89adb18e70c19.svg",
-    "main.ff02f4b5.css.map": "/TarotCalculator/static/css/main.ff02f4b5.css.map",
-    "main.daa30710.js.map": "/TarotCalculator/static/js/main.daa30710.js.map",
+    "main.be8419b4.css.map": "/TarotCalculator/static/css/main.be8419b4.css.map",
+    "main.20559906.js.map": "/TarotCalculator/static/js/main.20559906.js.map",
     "453.cf7a9db1.chunk.js.map": "/TarotCalculator/static/js/453.cf7a9db1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ff02f4b5.css",
-    "static/js/main.daa30710.js"
+    "static/css/main.be8419b4.css",
+    "static/js/main.20559906.js"
   ]
 }
