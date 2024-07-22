@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/TarotCalculator/static/css/main.ff02f4b5.css",
-    "main.js": "/TarotCalculator/static/js/main.dfc02782.js",
+    "main.js": "/TarotCalculator/static/js/main.df15cd39.js",
     "static/js/453.cf7a9db1.chunk.js": "/TarotCalculator/static/js/453.cf7a9db1.chunk.js",
     "index.html": "/TarotCalculator/index.html",
     "static/media/DEATH.svg": "/TarotCalculator/static/media/DEATH.9af99a1c5515f75f7fc3da24138ef70b.svg",
@@ -27,11 +27,11 @@
     "static/media/THE_WORLD.svg": "/TarotCalculator/static/media/THE_WORLD.96133fb77cd54d882554bd5cb6e38079.svg",
     "static/media/WHEEL_OF_FORTUNE.svg": "/TarotCalculator/static/media/WHEEL_OF_FORTUNE.e4fc61ee54115fed79cb3c78fc20fb5d.svg",
     "main.ff02f4b5.css.map": "/TarotCalculator/static/css/main.ff02f4b5.css.map",
-    "main.dfc02782.js.map": "/TarotCalculator/static/js/main.dfc02782.js.map",
+    "main.df15cd39.js.map": "/TarotCalculator/static/js/main.df15cd39.js.map",
     "453.cf7a9db1.chunk.js.map": "/TarotCalculator/static/js/453.cf7a9db1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ff02f4b5.css",
-    "static/js/main.dfc02782.js"
+    "static/js/main.df15cd39.js"
   ]
 }
