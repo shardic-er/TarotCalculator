@@ -18,4 +18,4 @@ export const affinityColors: Record<Affinity, string> = {
 
 export const defaultShowImpactPointsOnTooltip: boolean = false
 export const defaultHideImpressionIconsUntilSelected = true
-export const defaultConfigsLocked = true
+export const defaultConfigsLocked = false
