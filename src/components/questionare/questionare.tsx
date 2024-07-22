@@ -14,6 +14,7 @@ interface QuestionnaireProps {
     onRandomize: () => void;
     results: Result[];
     displayAffinities: Record<Affinity, boolean>; // Add displayAffinities to props
+    showImpactPointsOnTooltip: boolean
 }
 
 const Questionnaire: React.FC<QuestionnaireProps> = (
@@ -25,7 +26,8 @@ const Questionnaire: React.FC<QuestionnaireProps> = (
         onClear,
         onRandomize,
         results,
-        displayAffinities // Destructure displayAffinities from props
+        displayAffinities,
+        showImpactPointsOnTooltip
     }
 ) => {
     const renderQuestionSelector = (question: Question) => {
@@ -61,7 +63,7 @@ const Questionnaire: React.FC<QuestionnaireProps> = (
                                 >
                                     {option.impacts.map(impact =>
                                             displayAffinities[impact.points as Affinity] && (
-                                                <DisplayImpression key={impact.categoryId} impact={impact}/>
+                                                <DisplayImpression key={impact.categoryId} impact={impact} showImpactPointsOnTooltip={showImpactPointsOnTooltip}/>
                                             )
                                     )}
                                 </div>

@@ -3,6 +3,7 @@ import Questionnaire from '../questionare/questionare'; // Use the incorrect spe
 import { Category, Question, Result } from '../../common/interfaces';
 import ParticipantsResultsTable from '../participants_results_table/participants_results_table';
 import {Affinity} from "../../common/enum";
+import { defaultShowImpactPointsOnTooltip } from '../../config';
 
 interface ParticipantsTabsProps {
     questions: Question[];
@@ -47,7 +48,7 @@ const ParticipantsTabs: React.FC<ParticipantsTabsProps> = ({ questions, categori
         [Affinity.MODERATE]: false,
         [Affinity.STRONG]: true
     });
-
+    const [showImpactPointsOnTooltip, setShowImpactPointsOnTooltip] = useState(defaultShowImpactPointsOnTooltip);
 
     // Initialize names with random values (mock for now)
     useEffect(() => {
@@ -292,7 +293,8 @@ const ParticipantsTabs: React.FC<ParticipantsTabsProps> = ({ questions, categori
                                         onClear={() => handleClear(idx)}
                                         onRandomize={() => handleRandomize(idx)}
                                         results={results[idx] || []}
-                                        displayAffinities={displayAffinities} // Pass displayAffinities as prop
+                                        displayAffinities={displayAffinities}
+                                        showImpactPointsOnTooltip={showImpactPointsOnTooltip} // Pass the state as prop
                                     />
                                 </div>
                             </div>
@@ -340,6 +342,18 @@ const ParticipantsTabs: React.FC<ParticipantsTabsProps> = ({ questions, categori
                             </label>
                         </div>
                     ))}
+                    <div className="form-check mt-3">
+                        <input
+                            type="checkbox"
+                            className="form-check-input"
+                            id="show-impact-points"
+                            checked={showImpactPointsOnTooltip}
+                            onChange={() => setShowImpactPointsOnTooltip(prev => !prev)}
+                        />
+                        <label className="form-check-label" htmlFor="show-impact-points">
+                            Show Impact Points
+                        </label>
+                    </div>
                 </div>
             </div>
         );

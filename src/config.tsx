@@ -11,7 +11,9 @@ export const defaultDisplayAffinities: Record<Affinity, boolean> = {
 export const affinityColors: Record<Affinity, string> = {
     [Affinity.ANTI]: 'red',
     [Affinity.NONE]: 'grey',
-    [Affinity.SLIGHT]: 'lightblue',
-    [Affinity.MODERATE]: 'blue',
-    [Affinity.STRONG]: 'darkblue'
+    [Affinity.SLIGHT]: 'lightgreen',
+    [Affinity.MODERATE]: 'green',
+    [Affinity.STRONG]: 'darkgreen'
 };
+
+export const defaultShowImpactPointsOnTooltip: boolean = true
