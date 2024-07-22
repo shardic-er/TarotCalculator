@@ -26,11 +26,11 @@ const DisplayImpression: React.FC<DisplayImpressionProps> = ({ impact }) => {
 
     return (
         <OverlayTrigger
-            placement="top"
+            placement="bottom-start"
             overlay={<Tooltip id={`tooltip-${impact.categoryId}`}>{`${arcanaName.replace('_', ' ')}: ${impact.points > 0 ? '+' : ''}${impact.points}`}</Tooltip>}
         >
             <div style={styles}>
-                <img src={icon} alt={`icon-${impact.categoryId}`} width="24" height="24" />
+                <img src={icon} alt={`icon-${impact.categoryId}`} width="32" height="32" />
             </div>
         </OverlayTrigger>
     );
