@@ -1,15 +1,37 @@
 {
   "files": {
     "main.css": "/TarotCalculator/static/css/main.ff02f4b5.css",
-    "main.js": "/TarotCalculator/static/js/main.b528d628.js",
+    "main.js": "/TarotCalculator/static/js/main.dfc02782.js",
     "static/js/453.cf7a9db1.chunk.js": "/TarotCalculator/static/js/453.cf7a9db1.chunk.js",
     "index.html": "/TarotCalculator/index.html",
+    "static/media/DEATH.svg": "/TarotCalculator/static/media/DEATH.9af99a1c5515f75f7fc3da24138ef70b.svg",
+    "static/media/JUDGEMENT.svg": "/TarotCalculator/static/media/JUDGEMENT.277b6b3a4b45551995ba41e067fe8b5a.svg",
+    "static/media/JUSTICE.svg": "/TarotCalculator/static/media/JUSTICE.b27131fb4f680fa80088ed11f118415d.svg",
+    "static/media/STRENGTH.svg": "/TarotCalculator/static/media/STRENGTH.a899292f9d9a8865e8f3e9174fce9d89.svg",
+    "static/media/TEMPERANCE.svg": "/TarotCalculator/static/media/TEMPERANCE.e206a4ac79c62d504a3dbf2e70ac046b.svg",
+    "static/media/THE_CHARIOT.svg": "/TarotCalculator/static/media/THE_CHARIOT.207070cb651e3cf5c5394124e41dea63.svg",
+    "static/media/THE_DEVIL.svg": "/TarotCalculator/static/media/THE_DEVIL.ad06d59a90677c187851902e7c94b9e7.svg",
+    "static/media/THE_EMPEROR.svg": "/TarotCalculator/static/media/THE_EMPEROR.b68c3efde22afa7805333937641d2dc6.svg",
+    "static/media/THE_EMPRESS.svg": "/TarotCalculator/static/media/THE_EMPRESS.5faa2e42ae8df4c7c70f6eac0b291716.svg",
+    "static/media/THE_FOOL.svg": "/TarotCalculator/static/media/THE_FOOL.229f7bcc2a10e4528d2a55b1c528263e.svg",
+    "static/media/THE_HANGED_MAN.svg": "/TarotCalculator/static/media/THE_HANGED_MAN.053ec8a1fc7c7d011e2bfe859999c7a0.svg",
+    "static/media/THE_HERMIT.svg": "/TarotCalculator/static/media/THE_HERMIT.fcc76236da8b99b223d045b5b8005093.svg",
+    "static/media/THE_HIEROPHANT.svg": "/TarotCalculator/static/media/THE_HIEROPHANT.55f48964746afdc116a2dd2162addb5c.svg",
+    "static/media/THE_HIGH_PRIESTESS.svg": "/TarotCalculator/static/media/THE_HIGH_PRIESTESS.5634b46ac202578bb39950b56b98663d.svg",
+    "static/media/THE_LOVERS.svg": "/TarotCalculator/static/media/THE_LOVERS.d621fec387897af81079bf486f5b2d9e.svg",
+    "static/media/THE_MAGICIAN.svg": "/TarotCalculator/static/media/THE_MAGICIAN.593c3097c3de19ab3b4633716f972436.svg",
+    "static/media/THE_MOON.svg": "/TarotCalculator/static/media/THE_MOON.527f3e9854d05fa2ea4570688c3b2d4f.svg",
+    "static/media/THE_STAR.svg": "/TarotCalculator/static/media/THE_STAR.a899292f9d9a8865e8f3e9174fce9d89.svg",
+    "static/media/THE_SUN.svg": "/TarotCalculator/static/media/THE_SUN.74f4dfb0862ff30968ea7b25146fecde.svg",
+    "static/media/THE_TOWER.svg": "/TarotCalculator/static/media/THE_TOWER.e756fb9138c79fbd1751ff82b1e44788.svg",
+    "static/media/THE_WORLD.svg": "/TarotCalculator/static/media/THE_WORLD.96133fb77cd54d882554bd5cb6e38079.svg",
+    "static/media/WHEEL_OF_FORTUNE.svg": "/TarotCalculator/static/media/WHEEL_OF_FORTUNE.e4fc61ee54115fed79cb3c78fc20fb5d.svg",
     "main.ff02f4b5.css.map": "/TarotCalculator/static/css/main.ff02f4b5.css.map",
-    "main.b528d628.js.map": "/TarotCalculator/static/js/main.b528d628.js.map",
+    "main.dfc02782.js.map": "/TarotCalculator/static/js/main.dfc02782.js.map",
     "453.cf7a9db1.chunk.js.map": "/TarotCalculator/static/js/453.cf7a9db1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ff02f4b5.css",
-    "static/js/main.b528d628.js"
+    "static/js/main.dfc02782.js"
   ]
 }
