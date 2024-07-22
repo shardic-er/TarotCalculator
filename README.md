@@ -1,46 +1,85 @@
-# Getting Started with Create React App
+Tarot Calculator App
+This is a Tarot Calculator App built with React. The app allows multiple participants to answer a series of questions, calculate scores based on their answers, and sort participants into different Tarot categories based on their scores.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Features
+Multiple participant support
+Configurable Tarot affinities
+Randomize and clear responses
+Score calculation and error calculation
+Displaying Tarot icons with different affinity levels
+Dynamic participant naming
+Detailed results summary
+Installation
+Clone the repository:
+bash
+Copy code
+git clone https://github.com/shardic-er/TarotCalculator.git
+cd TarotCalculator
+Install the dependencies:
+bash
+Copy code
+npm install
+Run the app:
+bash
+Copy code
+npm start
+Deployment
+To deploy the app to GitHub Pages:
 
-## Available Scripts
+Ensure the homepage field in package.json is set to "https://<your-username>.github.io/TarotCalculator"
 
-In the project directory, you can run:
+Build and deploy the app:
 
-### `npm start`
+bash
+Copy code
+npm run deploy
+Usage
+Main Components
+ParticipantsTabs: The main component that handles multiple participants, their responses, and the results.
+Questionnaire: Handles the display and interaction of the questions and their answer options.
+ParticipantsResultsTable: Displays the results summary for all participants.
+DisplayImpression: Displays the Tarot icons with their affinity levels.
+Configuration
+Tarot Affinities
+Tarot affinities can be configured dynamically through checkboxes available below the participant's name input field. The affinities available are:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+ANTI (-5)
+NONE (0)
+SLIGHT (1)
+MODERATE (3)
+STRONG (7)
+Dynamic Participant Names
+Participants can be given dynamic names using the input field provided. These names are reflected across the app, including the results summary.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Controls
+Submit: Submits the current responses for a participant.
+Randomize: Randomizes the responses for a participant.
+Clear: Clears the responses for a participant.
+Score All: Scores all participants based on their current responses.
+Randomize All: Randomizes the responses for all participants.
+Sort: Sorts participants into Tarot categories based on their scores.
+Project Structure
+src/
+components/
+participants_tabs/
+questionare/
+participants_results_table/
+display_impression/
+results_table/
+common/
+interfaces.ts
+enum.ts
+data/
+question_data.ts
+catagory_data.ts
+icons/ (Contains SVG icons for each Tarot category)
+Contributing
+Fork the repository
+Create your feature branch (git checkout -b feature/fooBar)
+Commit your changes (git commit -am 'Add some fooBar')
+Push to the branch (git push origin feature/fooBar)
+Create a new Pull Request
+License
 
-### `npm test`
+This project is licensed under the MIT License.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
