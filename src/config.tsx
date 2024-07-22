@@ -16,4 +16,4 @@ export const affinityColors: Record<Affinity, string> = {
     [Affinity.STRONG]: 'darkgreen'
 };
 
-export const defaultShowImpactPointsOnTooltip: boolean = true
+export const defaultShowImpactPointsOnTooltip: boolean = false
