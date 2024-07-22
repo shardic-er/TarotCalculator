@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cfe69f27-4d20-447a-b491-9de69afd24ec" name="Changes" comment="git nonsense">
+    <list default="true" id="cfe69f27-4d20-447a-b491-9de69afd24ec" name="Changes" comment="config update">
+      <change afterPath="$PROJECT_DIR$/src/components/questionare/questionare.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/display_impression/display_impression.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/display_impression/display_impression.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/participants_tabs/participants_tabs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/participants_tabs/participants_tabs.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/questionare/questionare.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/questionare/questionare.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,12 +37,18 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "TF_FMT": "false",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Shardic/Desktop/YorkSolutions/tower-arcana-quiz-app/src/components/display_impression",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "ts.external.directory.path": "C:\\Users\\Shardic\\Desktop\\YorkSolutions\\tower-arcana-quiz-app\\node_modules\\typescript\\lib"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Shardic\Desktop\YorkSolutions\tower-arcana-quiz-app\src\components\display_impression" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -46,7 +57,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1721677603443</updated>
-      <workItem from="1721677605434" duration="124000" />
+      <workItem from="1721677605434" duration="7189000" />
     </task>
     <task id="LOCAL-00001" summary="git nonsense">
       <created>1721677701595</created>
@@ -55,7 +66,14 @@
       <option name="project" value="LOCAL" />
       <updated>1721677701595</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="config update">
+      <created>1721677745148</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1721677745148</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -74,6 +92,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="git nonsense" />
-    <option name="LAST_COMMIT_MESSAGE" value="git nonsense" />
+    <MESSAGE value="config update" />
+    <option name="LAST_COMMIT_MESSAGE" value="config update" />
   </component>
 </project>

@@ -3,6 +3,7 @@ import {Category, Question, Result} from '../../common/interfaces';
 import ResultsTable from '../results_table/results_table';
 import {Affinity} from '../../common/enum';
 import DisplayImpression from '../display_impression/display_impression';
+import './questionare.css';
 
 interface QuestionnaireProps {
     questions: Question[];
@@ -14,7 +15,8 @@ interface QuestionnaireProps {
     onRandomize: () => void;
     results: Result[];
     displayAffinities: Record<Affinity, boolean>; // Add displayAffinities to props
-    showImpactPointsOnTooltip: boolean
+    showImpactPointsOnTooltip: boolean;
+    hideIconsUntilSelected: boolean;
 }
 
 const Questionnaire: React.FC<QuestionnaireProps> = (
@@ -27,15 +29,17 @@ const Questionnaire: React.FC<QuestionnaireProps> = (
         onRandomize,
         results,
         displayAffinities,
-        showImpactPointsOnTooltip
+        showImpactPointsOnTooltip,
+        hideIconsUntilSelected
     }
 ) => {
+
     const renderQuestionSelector = (question: Question) => {
         return (
             <div key={question.id} className="card mb-3">
                 <div className="card-body">
                     <h5 className="card-title">{question.text}</h5>
-                    <div className="btn-group" style={{width: '100%'}}>
+                    <div className="btn-group" style={{ width: '100%' }}>
                         {question.options.map(option => (
                             <button
                                 key={option.id}
@@ -48,22 +52,25 @@ const Questionnaire: React.FC<QuestionnaireProps> = (
                                     flexDirection: 'column',
                                     justifyContent: 'space-between',
                                     minHeight: '100px', // Adjust the height as needed
-                                    color: selectedOptions[question.id] === option.id ? '#fff' : '#000' //black if unselected, white if selected
+                                    color: selectedOptions[question.id] === option.id ? '#fff' : '#000' // black if unselected, white if selected
                                 }}
                             >
                                 <div>{option.text}</div>
-                                <br/>
+                                <br />
                                 <div
-                                    className="d-flex flex-wrap"
+                                    className={`d-flex flex-wrap ${(!hideIconsUntilSelected || selectedOptions[question.id] === option.id) ? 'fade-in' : 'hidden'}`}
                                     style={{
                                         marginTop: 'auto', // Push impressions to the bottom
                                         justifyContent: 'flex-start', // Align impressions to the left
-                                        alignSelf: 'flex-start', // Ensure the container itself is aligned to the left
-                                    }}
-                                >
+                                        alignSelf: 'flex-start' // Ensure the container itself is aligned to the left
+                                    }}>
                                     {option.impacts.map(impact =>
                                             displayAffinities[impact.points as Affinity] && (
-                                                <DisplayImpression key={impact.categoryId} impact={impact} showImpactPointsOnTooltip={showImpactPointsOnTooltip}/>
+                                                <DisplayImpression
+                                                    key={impact.categoryId}
+                                                    impact={impact}
+                                                    showImpactPointsOnTooltip={showImpactPointsOnTooltip}
+                                                />
                                             )
                                     )}
                                 </div>
@@ -74,6 +81,7 @@ const Questionnaire: React.FC<QuestionnaireProps> = (
             </div>
         );
     };
+
 
     const renderQuestionCards = () => questions.map(renderQuestionSelector);
 
@@ -96,12 +104,12 @@ const Questionnaire: React.FC<QuestionnaireProps> = (
     return (
         <div className="container">
             <div className="row justify-content-around">
-                <div className="col-md-9" style={{marginBottom: '2rem'}}>
+                <div className="col-md-9" style={{ marginBottom: '2rem' }}>
                     {renderQuestionCards()}
                     {renderControlButtons()}
                 </div>
                 <div>
-                    <ResultsTable results={results}/>
+                    <ResultsTable results={results} />
                 </div>
             </div>
         </div>

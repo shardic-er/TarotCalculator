@@ -17,3 +17,4 @@ export const affinityColors: Record<Affinity, string> = {
 };
 
 export const defaultShowImpactPointsOnTooltip: boolean = false
+export const defaultHideImpressionIconsUntilSelected = true

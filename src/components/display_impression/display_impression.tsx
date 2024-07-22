@@ -1,21 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ArcanaCategory, Affinity, arcanaIcons } from '../../common/enum';
 import { Tooltip, OverlayTrigger } from 'react-bootstrap';
-import {affinityColors, defaultShowImpactPointsOnTooltip} from '../../config';
+import { affinityColors, defaultShowImpactPointsOnTooltip } from '../../config';
 
 interface DisplayImpressionProps {
     impact: {
         categoryId: ArcanaCategory;
         points: Affinity;
     },
-    showImpactPointsOnTooltip: boolean | undefined
+    showImpactPointsOnTooltip: boolean | undefined;
 }
 
-const DisplayImpression: React.FC<DisplayImpressionProps> = ({ impact, showImpactPointsOnTooltip}) => {
+const DisplayImpression: React.FC<DisplayImpressionProps> = ({ impact, showImpactPointsOnTooltip }) => {
     const icon = arcanaIcons[impact.categoryId];
     const affinityColor = affinityColors[impact.points];
     const arcanaName = ArcanaCategory[impact.categoryId]; // Get the full name of the Arcana
-    const showImpactPointsSetting = showImpactPointsOnTooltip!==undefined ? showImpactPointsOnTooltip : defaultShowImpactPointsOnTooltip
+    const showImpactPointsSetting = showImpactPointsOnTooltip !== undefined ? showImpactPointsOnTooltip : defaultShowImpactPointsOnTooltip;
+    const [visible, setVisible] = useState(false);
+
+    useEffect(() => {
+        setVisible(true);
+    }, []);
 
     const styles = {
         backgroundColor: affinityColor,
@@ -23,7 +28,9 @@ const DisplayImpression: React.FC<DisplayImpressionProps> = ({ impact, showImpac
         margin: '2px',
         padding: '2px',
         borderRadius: '4px',
-        border: '1px solid #000' // Add border
+        border: '1px solid #000',
+        opacity: visible ? 1 : 0,
+        transition: 'opacity 1s',
     };
 
     const formatArcanaName = (name: string) => {
@@ -37,13 +44,13 @@ const DisplayImpression: React.FC<DisplayImpressionProps> = ({ impact, showImpac
         <OverlayTrigger
             placement="bottom-start"
             overlay={
-            <Tooltip id={`tooltip-${impact.categoryId}`}>
-                { showImpactPointsSetting ?
-                    `${formatArcanaName(arcanaName)}: ${impact.points > 0 ? '+' : ''}${impact.points}`
-                    : `${formatArcanaName(arcanaName)}`
-                }
-            </Tooltip>
-        }
+                <Tooltip id={`tooltip-${impact.categoryId}`}>
+                    {showImpactPointsSetting ?
+                        `${formatArcanaName(arcanaName)}: ${impact.points > 0 ? '+' : ''}${impact.points}` :
+                        `${formatArcanaName(arcanaName)}`
+                    }
+                </Tooltip>
+            }
         >
             <div style={styles}>
                 <img src={icon} alt={`icon-${impact.categoryId}`} width="32" height="32" />
