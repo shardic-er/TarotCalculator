@@ -1,7 +1,7 @@
 import React from 'react';
-import { Category, Question, Result } from '../../common/interfaces';
+import {Category, Question, Result} from '../../common/interfaces';
 import ResultsTable from '../results_table/results_table';
-import { Affinity } from '../../common/enum';
+import {Affinity} from '../../common/enum';
 import DisplayImpression from '../display_impression/display_impression';
 
 interface QuestionnaireProps {
@@ -16,22 +16,24 @@ interface QuestionnaireProps {
     displayAffinities: Record<Affinity, boolean>; // Add displayAffinities to props
 }
 
-const Questionnaire: React.FC<QuestionnaireProps> = ({
-                                                         questions,
-                                                         selectedOptions,
-                                                         onOptionSelect,
-                                                         onSubmit,
-                                                         onClear,
-                                                         onRandomize,
-                                                         results,
-                                                         displayAffinities // Destructure displayAffinities from props
-                                                     }) => {
+const Questionnaire: React.FC<QuestionnaireProps> = (
+    {
+        questions,
+        selectedOptions,
+        onOptionSelect,
+        onSubmit,
+        onClear,
+        onRandomize,
+        results,
+        displayAffinities // Destructure displayAffinities from props
+    }
+) => {
     const renderQuestionSelector = (question: Question) => {
         return (
             <div key={question.id} className="card mb-3">
                 <div className="card-body">
                     <h5 className="card-title">{question.text}</h5>
-                    <div className="btn-group" style={{ width: '100%' }}>
+                    <div className="btn-group" style={{width: '100%'}}>
                         {question.options.map(option => (
                             <button
                                 key={option.id}
@@ -43,21 +45,23 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({
                                     display: 'flex',
                                     flexDirection: 'column',
                                     justifyContent: 'space-between',
-                                    minHeight: '100px' // Adjust the height as needed
+                                    minHeight: '100px', // Adjust the height as needed
+                                    color: selectedOptions[question.id] === option.id ? '#fff' : '#000' //black if unselected, white if selected
                                 }}
                             >
                                 <div>{option.text}</div>
+                                <br/>
                                 <div
                                     className="d-flex flex-wrap"
                                     style={{
                                         marginTop: 'auto', // Push impressions to the bottom
-                                        justifyContent: 'flex-end', // Align impressions to the right
-                                        alignSelf: 'flex-end' // Ensure the container itself is aligned to the right
+                                        justifyContent: 'flex-start', // Align impressions to the left
+                                        alignSelf: 'flex-start', // Ensure the container itself is aligned to the left
                                     }}
                                 >
                                     {option.impacts.map(impact =>
                                             displayAffinities[impact.points as Affinity] && (
-                                                <DisplayImpression key={impact.categoryId} impact={impact} />
+                                                <DisplayImpression key={impact.categoryId} impact={impact}/>
                                             )
                                     )}
                                 </div>
@@ -90,12 +94,12 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({
     return (
         <div className="container">
             <div className="row justify-content-around">
-                <div className="col-md-9" style={{ marginBottom: '2rem' }}>
+                <div className="col-md-9" style={{marginBottom: '2rem'}}>
                     {renderQuestionCards()}
                     {renderControlButtons()}
                 </div>
                 <div>
-                    <ResultsTable results={results} />
+                    <ResultsTable results={results}/>
                 </div>
             </div>
         </div>
