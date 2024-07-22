@@ -1,7 +1,7 @@
 import {Affinity} from "./common/enum";
 
 export const defaultDisplayAffinities: Record<Affinity, boolean> = {
-    [Affinity.ANTI]: true,
+    [Affinity.ANTI]: false,
     [Affinity.NONE]: false,
     [Affinity.SLIGHT]: false,
     [Affinity.MODERATE]: false,
@@ -18,3 +18,4 @@ export const affinityColors: Record<Affinity, string> = {
 
 export const defaultShowImpactPointsOnTooltip: boolean = false
 export const defaultHideImpressionIconsUntilSelected = true
+export const defaultConfigsLocked = true

@@ -3,7 +3,11 @@ import Questionnaire from '../questionare/questionare'; // Use the incorrect spe
 import { Category, Question, Result } from '../../common/interfaces';
 import ParticipantsResultsTable from '../participants_results_table/participants_results_table';
 import {Affinity} from "../../common/enum";
-import {defaultHideImpressionIconsUntilSelected, defaultShowImpactPointsOnTooltip} from '../../config';
+import {
+    defaultConfigsLocked,
+    defaultHideImpressionIconsUntilSelected,
+    defaultShowImpactPointsOnTooltip
+} from '../../config';
 
 interface ParticipantsTabsProps {
     questions: Question[];
@@ -50,6 +54,8 @@ const ParticipantsTabs: React.FC<ParticipantsTabsProps> = ({ questions, categori
     });
     const [showImpactPointsOnTooltip, setShowImpactPointsOnTooltip] = useState(defaultShowImpactPointsOnTooltip);
     const [hideIconsUntilSelected, setHideIconsUntilSelected] = useState(defaultHideImpressionIconsUntilSelected);
+    const [configsLocked, setConfigsLocked] = useState(defaultConfigsLocked);
+
 
     // Initialize names with random values (mock for now)
     useEffect(() => {
@@ -262,7 +268,7 @@ const ParticipantsTabs: React.FC<ParticipantsTabsProps> = ({ questions, categori
                     >
                         Clear
                     </button>
-                    {renderAffinityCheckboxes()}
+                    {renderAffinityCheckboxes(configsLocked)}
                 </div>
             </div>
         );
@@ -323,11 +329,13 @@ const ParticipantsTabs: React.FC<ParticipantsTabsProps> = ({ questions, categori
         );
     };
 
-    const renderAffinityCheckboxes = () => {
+    const renderAffinityCheckboxes = (configsLocked: boolean) => {
         return (
             <div className="card mb-3" style={{ maxWidth: "300px" }}>
                 <div className="card-body">
-                    <h5 className="card-title">Configure Affinities</h5>
+                    <h5 className="card-title" style={{color: configsLocked ? 'grey' : 'inherit'}}>
+                        Configure Affinities
+                    </h5>
                     {Object.values(Affinity).filter(value => typeof value === 'number').map((affinity, index) => (
                         <div className="form-check" key={index}>
                             <input
@@ -336,6 +344,7 @@ const ParticipantsTabs: React.FC<ParticipantsTabsProps> = ({ questions, categori
                                 id={`affinity-${affinity}`}
                                 checked={displayAffinities[affinity as Affinity]}
                                 onChange={() => handleAffinityChange(affinity as Affinity)}
+                                disabled={configsLocked} // Disable the checkbox if configsLocked is true
                             />
                             <label className="form-check-label" htmlFor={`affinity-${affinity}`}>
                                 {Affinity[affinity as Affinity]}
@@ -349,6 +358,7 @@ const ParticipantsTabs: React.FC<ParticipantsTabsProps> = ({ questions, categori
                             id="show-impact-points"
                             checked={showImpactPointsOnTooltip}
                             onChange={() => setShowImpactPointsOnTooltip(prev => !prev)}
+                            disabled={configsLocked} // Disable the checkbox if configsLocked is true
                         />
                         <label className="form-check-label" htmlFor="show-impact-points">
                             Show Impact Points
@@ -358,11 +368,12 @@ const ParticipantsTabs: React.FC<ParticipantsTabsProps> = ({ questions, categori
                         <input
                             type="checkbox"
                             className="form-check-input"
-                            id="show-impact-points"
+                            id="hide-icons-until-selected"
                             checked={hideIconsUntilSelected}
                             onChange={() => setHideIconsUntilSelected(prev => !prev)}
+                            disabled={configsLocked} // Disable the checkbox if configsLocked is true
                         />
-                        <label className="form-check-label" htmlFor="show-impact-points-only-after-selection">
+                        <label className="form-check-label" htmlFor="hide-icons-until-selected">
                             Hide impacts until selection
                         </label>
                     </div>
@@ -370,6 +381,7 @@ const ParticipantsTabs: React.FC<ParticipantsTabsProps> = ({ questions, categori
             </div>
         );
     };
+
 
     return (
         <div>
